@@ -1,0 +1,26 @@
+@group(0) @binding(2) var<uniform> u_color: vec4<f32>;
+@group(0) @binding(3) var<uniform> u_opacity: f32;
+
+#ifdef USE_TEXTURE
+struct FragmentInput {
+  @location(0) var v_uv: vec2<f32>;
+};
+#endif
+
+#ifdef USE_TEXTURE
+@group(0) @binding(4) var u_texture: texture_2d<f32>;
+@group(0) @binding(5) var u_sampler: sampler;
+#endif
+
+#ifdef USE_TEXTURE
+@fragment
+fn main(input: FragmentInput) -> @location(0) vec4<f32> {
+  var color = textureSample(u_texture, u_sampler, input.v_uv);
+  return vec4<f32>(color.rgb, color.a * u_opacity);
+}
+#else
+@fragment
+fn main() -> @location(0) vec4<f32> {
+  return vec4<f32>(u_color.rgb, u_color.a * u_opacity);
+}
+#endif
