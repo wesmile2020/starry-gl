@@ -20,7 +20,7 @@ class WebGPUBuffer {
       mappedAtCreation: !asyncWrite,
     });
     if (asyncWrite) {
-      this._device.queue.writeBuffer(this._buffer, 0, data);
+      this._device.queue.writeBuffer(this._buffer, 0, data.buffer);
     } else {
       if (type === EBufferDataType.float32) {
         new Float32Array(this._buffer.getMappedRange()).set(data);

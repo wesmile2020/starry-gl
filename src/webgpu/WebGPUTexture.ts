@@ -62,7 +62,7 @@ class WebGPUTexture {
 
     this._device.queue.writeTexture(
       { texture: this._texture },
-      data,
+      data.buffer,
       { bytesPerRow: width * channel * data.BYTES_PER_ELEMENT },
       [width, height],
     );

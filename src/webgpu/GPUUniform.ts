@@ -71,7 +71,7 @@ export class GPUIntUniform extends GPUUniform<number> {
         usage: GPUBufferUsage.UNIFORM | GPUBufferUsage.COPY_DST,
       });
     }
-    this._device.queue.writeBuffer(this._buffer, 0, this._array);
+    this._device.queue.writeBuffer(this._buffer, 0, this._array.buffer, 0, this._array.byteLength);
   }
 }
 
@@ -92,7 +92,7 @@ export class GPUFloatUniform extends GPUUniform<number> {
         usage: GPUBufferUsage.UNIFORM | GPUBufferUsage.COPY_DST,
       });
     }
-    this._device.queue.writeBuffer(this._buffer, 0, this._array);
+    this._device.queue.writeBuffer(this._buffer, 0, this._array.buffer, 0, this._array.byteLength);
   }
 }
 
@@ -116,7 +116,7 @@ export class GPUVectorUniform extends GPUUniform<VectorValue> {
         usage: GPUBufferUsage.UNIFORM | GPUBufferUsage.COPY_DST,
       });
     }
-    this._device.queue.writeBuffer(this._buffer, 0, this._array, 0, value.length);
+    this._device.queue.writeBuffer(this._buffer, 0, this._array.buffer, 0, this._array.byteLength);
   }
 }
 
@@ -140,6 +140,6 @@ export class GPUMatrixUniform extends GPUUniform<MatrixValue> {
         usage: GPUBufferUsage.UNIFORM | GPUBufferUsage.COPY_DST,
       });
     }
-    this._device.queue.writeBuffer(this._buffer, 0, this._array, 0, value.length);
+    this._device.queue.writeBuffer(this._buffer, 0, this._array.buffer, 0, this._array.byteLength);
   }
 }
