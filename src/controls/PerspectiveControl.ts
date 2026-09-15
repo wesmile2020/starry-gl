@@ -35,6 +35,8 @@ class PerspectiveControl {
     this._camera.resolution.set(width, height);
 
     this._calculate();
+
+    console.log(this._camera);
   }
 
   getWidth() {
