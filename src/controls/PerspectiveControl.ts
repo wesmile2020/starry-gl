@@ -35,8 +35,6 @@ class PerspectiveControl {
     this._camera.resolution.set(width, height);
 
     this._calculate();
-
-    console.log(this._camera);
   }
 
   getWidth() {
@@ -133,8 +131,8 @@ class PerspectiveControl {
     const x = (point.x / this._width) * 2 - 1;
     const y = -(point.y / this._height) * 2 + 1;
 
-    const v0 = this._camera.unproject(new Vector3(x, y, -1));
-    const v1 = this._camera.unproject(new Vector3(x, y, -10));
+    const v0 = this._camera.unproject(new Vector3(x, y, 1));
+    const v1 = this._camera.unproject(new Vector3(x, y, 0.01));
 
     const worldX = (z - v0.z) * (v0.x - v1.x) / (v0.z - v1.z) + v0.x;
     const worldY = (z - v0.z) * (v0.y - v1.y) / (v0.z - v1.z) + v0.y;
