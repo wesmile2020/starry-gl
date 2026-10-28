@@ -1,7 +1,7 @@
 import {
-  ETextureFilter,
-  ETextureFormat,
-  ETextureWrap,
+  TextureFilter,
+  TextureFormat,
+  TextureWrap,
   GPU_TextureChannelMapping,
   GPU_TextureFilterMapping,
   GPU_TextureFormatMapping,
@@ -36,7 +36,7 @@ class WebGPUTexture {
     return this._sampler;
   }
 
-  texImageTexture(width: number, height: number, format: ETextureFormat, data: GPUCopyExternalImageSource) {
+  texImageTexture(width: number, height: number, format: TextureFormat, data: GPUCopyExternalImageSource) {
     this._texture = this._device.createTexture({
       size: [width, height],
       format: GPU_TextureFormatMapping[format],
@@ -52,7 +52,7 @@ class WebGPUTexture {
     this._needsUpdate = true;
   }
 
-  texDataTexture(width: number, height: number, format: ETextureFormat, data: TextureDataType) {
+  texDataTexture(width: number, height: number, format: TextureFormat, data: TextureDataType) {
     this._texture = this._device.createTexture({
       size: [width, height],
       format: GPU_TextureFormatMapping[format],
@@ -70,7 +70,7 @@ class WebGPUTexture {
     this._needsUpdate = true;
   }
 
-  texParameters(wrapS: ETextureWrap, wrapT: ETextureWrap, magFilter: ETextureFilter, minFilter: ETextureFilter) {
+  texParameters(wrapS: TextureWrap, wrapT: TextureWrap, magFilter: TextureFilter, minFilter: TextureFilter) {
     const needsUpdate = wrapS !== this._wrapS ||
       wrapT !== this._wrapT ||
       magFilter !== this._magFilter ||

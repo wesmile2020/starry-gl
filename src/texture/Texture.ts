@@ -1,7 +1,7 @@
 import {
-  ETextureFilter,
-  ETextureFormat,
-  ETextureWrap,
+  TextureFilter,
+  TextureFormat,
+  TextureWrap,
 } from '@/config/define';
 import { GLTexture } from '@/webgl/GLTexture';
 import { WebGPUTexture } from '@/webgpu/WebGPUTexture';
@@ -23,11 +23,11 @@ abstract class Texture<T extends keyof TextureData = 'data' | 'image'> {
   private _type: T;
   protected _source: TextureData[T];
 
-  magFilter: ETextureFilter = ETextureFilter.linear;
-  minFilter: ETextureFilter = ETextureFilter.linear;
-  wrapS: ETextureWrap = ETextureWrap.clamToEdge;
-  wrapT: ETextureWrap = ETextureWrap.clamToEdge;
-  format: ETextureFormat = ETextureFormat.rgba8;
+  magFilter: TextureFilter = TextureFilter.linear;
+  minFilter: TextureFilter = TextureFilter.linear;
+  wrapS: TextureWrap = TextureWrap.clamToEdge;
+  wrapT: TextureWrap = TextureWrap.clamToEdge;
+  format: TextureFormat = TextureFormat.rgba8;
   level: number = 0;
 
   needsUpdate: boolean = true;

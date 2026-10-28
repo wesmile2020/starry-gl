@@ -1,13 +1,13 @@
 import { MathUtils } from "starry-math";
 import { AbstractMaterial } from "./AbstractMaterial";
-import { EShaderSourceType } from "@/config/ShaderSourceType";
+import { ShaderSourceType } from "@/config/ShaderSourceType";
 
 class ShaderMaterial extends AbstractMaterial {
   private _vertex: string;
   private _fragment: string;
 
   constructor(vertex: string, fragment: string) {
-    super(EShaderSourceType.custom);
+    super(ShaderSourceType.custom);
     this._vertex = vertex;
     this._fragment = fragment;
     this._shaderKey = this._calculateShaderKey();

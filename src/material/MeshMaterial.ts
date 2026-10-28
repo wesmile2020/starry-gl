@@ -1,6 +1,6 @@
 import { AbstractMaterial, MaterialParameters } from './AbstractMaterial';
 import { Texture } from '@/texture/Texture';
-import { EShaderSourceType } from '@/config/ShaderSourceType';
+import { ShaderSourceType } from '@/config/ShaderSourceType';
 
 export interface MeshMaterialParameters extends MaterialParameters {
   map: Texture | null;
@@ -8,7 +8,7 @@ export interface MeshMaterialParameters extends MaterialParameters {
 
 class MeshMaterial extends AbstractMaterial {
   constructor(parameters: Partial<MeshMaterialParameters> = {}) {
-    super(EShaderSourceType.mesh);
+    super(ShaderSourceType.mesh);
     super.setValues(parameters);
 
     this.map = parameters.map || null;

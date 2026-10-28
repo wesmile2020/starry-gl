@@ -3,7 +3,7 @@ import * as path from 'path';
 import glsl from 'vite-plugin-glsl';
 import checker from 'vite-plugin-checker';
 
-import pkg from './package.json';
+import pkg from './package.json' with { type: 'json' };
 
 const dependencies = Object.keys(pkg.dependencies);
 const globals: Record<string, string> = {};
@@ -14,7 +14,7 @@ for (let i = 0; i < dependencies.length; i += 1) {
 export default defineConfig({
   build: {
     lib: {
-      entry: path.resolve(__dirname, 'src/index.ts'),
+      entry: path.resolve(import.meta.dirname, 'src/index.ts'),
       name: 'StarryGL',
       fileName: 'starry-gl',
     },
@@ -30,8 +30,8 @@ export default defineConfig({
   },
   resolve: {
     alias: {
-      '@': path.resolve(__dirname, 'src'),
-      '~': path.resolve(__dirname),
+      '@': path.resolve(import.meta.dirname, 'src'),
+      '~': path.resolve(import.meta.dirname),
     },
   },
   plugins: [

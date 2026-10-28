@@ -1,18 +1,18 @@
 import { Float32BufferAttribute } from "@/geometry/BufferAttribute";
 import { buildAttributes, buildUniforms, getGPUVertexFormat } from "@/utils/gpu.utils";
 import { GPUBindGroupAddress } from "@/interfaces/GeometryType";
-import { EBlendParameter, EDrawMode, EDrawSide, GPU_BlendMapping, GPU_CullModeMapping, GPU_DrawModeMapping, GPU_SAMPLE_COUNT } from "@/config/define";
+import { BlendParameter, DrawMode, DrawSide, GPU_BlendMapping, GPU_CullModeMapping, GPU_DrawModeMapping, GPU_SAMPLE_COUNT } from "@/config/define";
 
 class RenderPipelineState {
   needsUpdate: boolean = true;
 
-  private _drawMode: EDrawMode = EDrawMode.points;
-  private _drawSide: EDrawSide = EDrawSide.front;
+  private _drawMode: DrawMode = DrawMode.points;
+  private _drawSide: DrawSide = DrawSide.front;
   private _blend: boolean = false;
-  private _srcRGB: EBlendParameter = EBlendParameter.srcAlpha;
-  private _dstRGB: EBlendParameter = EBlendParameter.oneMinusSrcAlpha;
-  private _srcAlpha: EBlendParameter = EBlendParameter.one;
-  private _dstAlpha: EBlendParameter = EBlendParameter.oneMinusSrcAlpha;
+  private _srcRGB: BlendParameter = BlendParameter.srcAlpha;
+  private _dstRGB: BlendParameter = BlendParameter.oneMinusSrcAlpha;
+  private _srcAlpha: BlendParameter = BlendParameter.one;
+  private _dstAlpha: BlendParameter = BlendParameter.oneMinusSrcAlpha;
   private _depthTest: boolean = false;
   private _depthFormat: GPUTextureFormat = 'depth24plus';
   private _depthFormatCode: number[] = [];
@@ -23,7 +23,7 @@ class RenderPipelineState {
     return this._drawMode;
   }
 
-  set drawMode(input: EDrawMode) {
+  set drawMode(input: DrawMode) {
     if (this._drawMode === input) {
       return;
     }
@@ -35,7 +35,7 @@ class RenderPipelineState {
     return this._drawSide;
   }
 
-  set drawSide(input: EDrawSide) {
+  set drawSide(input: DrawSide) {
     if (this._drawSide === input) {
       return;
     }
@@ -59,7 +59,7 @@ class RenderPipelineState {
     return this._srcRGB;
   }
 
-  set srcRGB(input: EBlendParameter) {
+  set srcRGB(input: BlendParameter) {
     if (this._srcRGB === input) {
       return;
     }
@@ -71,7 +71,7 @@ class RenderPipelineState {
     return this._dstRGB;
   }
 
-  set dstRGB(input: EBlendParameter) {
+  set dstRGB(input: BlendParameter) {
     if (this._dstRGB === input) {
       return;
     }
@@ -83,7 +83,7 @@ class RenderPipelineState {
     return this._srcAlpha;
   }
 
-  set srcAlpha(input: EBlendParameter) {
+  set srcAlpha(input: BlendParameter) {
     if (this._srcAlpha === input) {
       return;
     }
@@ -95,7 +95,7 @@ class RenderPipelineState {
     return this._dstAlpha;
   }
 
-  set dstAlpha(input: EBlendParameter) {
+  set dstAlpha(input: BlendParameter) {
     if (this._dstAlpha === input) {
       return;
     }
@@ -291,11 +291,11 @@ class GPUPipeline {
     }
   }
 
-  setDrawMode(drawMode: EDrawMode) {
+  setDrawMode(drawMode: DrawMode) {
     this._state.drawMode = drawMode;
   }
 
-  setDrawSide(drawSide: EDrawSide) {
+  setDrawSide(drawSide: DrawSide) {
     this._state.drawSide = drawSide;
   }
 
@@ -303,7 +303,7 @@ class GPUPipeline {
     this._state.blend = blend;
   }
 
-  blendSeparated(srcRGB: EBlendParameter, dstRGB: EBlendParameter, srcAlpha: EBlendParameter, dstAlpha: EBlendParameter) {
+  blendSeparated(srcRGB: BlendParameter, dstRGB: BlendParameter, srcAlpha: BlendParameter, dstAlpha: BlendParameter) {
     this._state.srcRGB = srcRGB;
     this._state.dstRGB = dstRGB;
     this._state.srcAlpha = srcAlpha;

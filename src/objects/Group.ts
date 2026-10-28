@@ -1,10 +1,10 @@
 import { MathUtils } from 'starry-math';
 import { Object3D } from '@/objects/Object3D';
-import { EObjectType, RenderObject } from '@/interfaces/ObjectType';
+import { ObjectType, RenderObject } from '@/interfaces/ObjectType';
 
 class Group extends Object3D {
   readonly children: (Group | RenderObject)[] = [];
-  readonly type: EObjectType.groupObject = EObjectType.groupObject;
+  readonly type: ObjectType.groupObject = ObjectType.groupObject;
 
   addObject(object: Group | RenderObject) {
     if (object.getParent()) {
@@ -28,7 +28,7 @@ class Group extends Object3D {
     return this;
   }
 
-  override updateWorldMatrix(updateParent?: boolean): this {
+  override updateWorldMatrix(updateParent: boolean = false): this {
     super.updateWorldMatrix(updateParent);
     for (let i = 0; i < this.children.length; i += 1) {
       this.children[i].updateWorldMatrix(false);
@@ -40,7 +40,7 @@ class Group extends Object3D {
     MathUtils.mergeSort(this.children, (a, b) => a.renderOrder - b.renderOrder);
     for (let i = 0; i < this.children.length; i += 1) {
       const item = this.children[i];
-      if (item.type === EObjectType.groupObject) {
+      if (item.type === ObjectType.groupObject) {
         item.sortObject();
       }
     }

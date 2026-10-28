@@ -2,7 +2,7 @@ import { SymbolGeometry } from '@/geometry/SymbolGeometry';
 import { TextMaterial } from '@/material/TextMaterial';
 import { GLContext } from '@/webgl/GLContext';
 import { Symbol } from './Symbol';
-import { EBlendParameter, GL_BufferDataMapping } from '@/config/define';
+import { BlendParameter, GL_BufferDataMapping } from '@/config/define';
 import { GPUContext } from '@/webgpu/GPUContext';
 import { WebGPUBindGroup } from '@/webgpu/WebGPUBindGroup';
 import { InternalRenderObjectData } from '@/interfaces/ObjectType';
@@ -19,10 +19,10 @@ class Text extends Symbol {
   constructor(geometry?: SymbolGeometry, material: TextMaterial = new TextMaterial()) {
     super(geometry, material);
     this.material = material;
-    this.material.srcRGB = EBlendParameter.srcAlpha;
-    this.material.dstRGB = EBlendParameter.oneMinusSrcAlpha;
-    this.material.srcAlpha = EBlendParameter.one;
-    this.material.dstAlpha = EBlendParameter.oneMinusSrcAlpha;
+    this.material.srcRGB = BlendParameter.srcAlpha;
+    this.material.dstRGB = BlendParameter.oneMinusSrcAlpha;
+    this.material.srcAlpha = BlendParameter.one;
+    this.material.dstAlpha = BlendParameter.oneMinusSrcAlpha;
   }
 
   renderOnGL(context: GLContext) {

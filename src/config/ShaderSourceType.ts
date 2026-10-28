@@ -1,4 +1,4 @@
-export const enum EShaderSourceType {
+export const enum ShaderSourceType {
   custom,
   line,
   mesh,
@@ -10,4 +10,3 @@ export interface SourceItem {
   vertex: string;
   fragment: string;
 }
-

@@ -1,7 +1,7 @@
 import { Vector2 } from 'starry-math';
 import { MaterialParameters, AbstractMaterial } from './AbstractMaterial';
 import { AbstractCamera } from '@/camera/AbstractCamera';
-import { EShaderSourceType } from '@/config/ShaderSourceType';
+import { ShaderSourceType } from '@/config/ShaderSourceType';
 
 export interface PolylineMaterialParameters extends MaterialParameters {
   lineWidth: number;
@@ -11,7 +11,7 @@ class PolylineMaterial extends AbstractMaterial {
   lineWidth: number = 8;
 
   constructor(parameters: Partial<PolylineMaterialParameters> = {}) {
-    super(EShaderSourceType.line);
+    super(ShaderSourceType.line);
     super.setValues(parameters);
     this.lineWidth = parameters.lineWidth ?? 8;
   }

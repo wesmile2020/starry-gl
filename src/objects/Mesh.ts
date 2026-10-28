@@ -2,19 +2,19 @@ import { Vector3, Ray } from 'starry-math';
 import { Object3D } from '@/objects/Object3D';
 import { BufferGeometry } from '@/geometry/BufferGeometry';
 import { AbstractMaterial } from '@/material/AbstractMaterial';
-import { Intersection, EObjectType, RenderObject, InternalRenderObjectData } from '@/interfaces/ObjectType';
+import { Intersection, ObjectType, RenderObject, InternalRenderObjectData } from '@/interfaces/ObjectType';
 import { MeshMaterial } from '@/material/MeshMaterial';
 import { RayCaster } from '@/objects/RayCaster';
 import { ArrayPoint } from '@/interfaces/GeometryType';
-import { EDrawMode } from '@/config/define';
+import { DrawMode } from '@/config/define';
 
 class Mesh extends Object3D implements RenderObject {
   __internalObjectData: InternalRenderObjectData = {};
 
   geometry: BufferGeometry;
   material: AbstractMaterial;
-  readonly type: EObjectType.renderObject = EObjectType.renderObject;
-  readonly drawMode: EDrawMode = EDrawMode.triangles;
+  readonly type: ObjectType.renderObject = ObjectType.renderObject;
+  readonly drawMode: DrawMode = DrawMode.triangles;
 
   constructor(geometry: BufferGeometry = new BufferGeometry(), material: AbstractMaterial = new MeshMaterial()) {
     super();

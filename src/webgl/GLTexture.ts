@@ -1,7 +1,7 @@
 import {
-  ETextureFilter,
-  ETextureFormat,
-  ETextureWrap,
+  TextureFilter,
+  TextureFormat,
+  TextureWrap,
   GL_TextureFilterMapping,
   GL_TextureFormatMapping,
   GL_TextureWrapMapping,
@@ -25,7 +25,7 @@ class GLTexture {
     this._gl.bindTexture(this._gl.TEXTURE_2D, this._texture);
   }
 
-  texDataTexture(level: GLint, width: number, height: number, format: ETextureFormat, data: TextureDataType) {
+  texDataTexture(level: GLint, width: number, height: number, format: TextureFormat, data: TextureDataType) {
     const formatConfig = GL_TextureFormatMapping[format];
     this._gl.texImage2D(
       this._gl.TEXTURE_2D,
@@ -40,7 +40,7 @@ class GLTexture {
     );
   }
 
-  texImageTexture(level: GLint, format: ETextureFormat, data: TexImageSource) {
+  texImageTexture(level: GLint, format: TextureFormat, data: TexImageSource) {
     const formatConfig = GL_TextureFormatMapping[format];
 
     this._gl.texImage2D(
@@ -53,7 +53,7 @@ class GLTexture {
     );
   }
 
-  texParameters(wrapS: ETextureWrap, wrapT: ETextureWrap, magFilter: ETextureFilter, minFilter: ETextureFilter) {
+  texParameters(wrapS: TextureWrap, wrapT: TextureWrap, magFilter: TextureFilter, minFilter: TextureFilter) {
     if (wrapS !== this._wrapS) {
       this._gl.texParameteri(this._gl.TEXTURE_2D, this._gl.TEXTURE_WRAP_S, GL_TextureWrapMapping[wrapS]);
       this._wrapS = wrapS;

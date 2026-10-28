@@ -1,4 +1,4 @@
-import { EShaderSourceType,  SourceItem } from '@/config/ShaderSourceType';
+import { ShaderSourceType,  SourceItem } from '@/config/ShaderSourceType';
 
 import lineVS from './line.vs';
 import lineFS from './line.fs';
@@ -10,10 +10,10 @@ import symbolVS from './symbol.vs';
 import symbolFS from './symbol.fs';
 
 const ShaderSource: Record<number, SourceItem> = {
-  [EShaderSourceType.line]: { vertex: lineVS, fragment: lineFS },
-  [EShaderSourceType.mesh]: { vertex: meshVS, fragment: meshFS },
-  [EShaderSourceType.point]: { vertex: pointVS, fragment: pointFS },
-  [EShaderSourceType.symbol]: { vertex: symbolVS, fragment: symbolFS },
+  [ShaderSourceType.line]: { vertex: lineVS, fragment: lineFS },
+  [ShaderSourceType.mesh]: { vertex: meshVS, fragment: meshFS },
+  [ShaderSourceType.point]: { vertex: pointVS, fragment: pointFS },
+  [ShaderSourceType.symbol]: { vertex: symbolVS, fragment: symbolFS },
 };
 
 export { ShaderSource };

@@ -2,20 +2,20 @@ import { Vector3, Ray } from 'starry-math';
 import { Object3D } from '@/objects/Object3D';
 import { BufferGeometry } from '@/geometry/BufferGeometry';
 import { AbstractMaterial } from '@/material/AbstractMaterial';
-import { Intersection, EObjectType, RenderObject, InternalRenderObjectData } from '@/interfaces/ObjectType';
+import { Intersection, ObjectType, RenderObject, InternalRenderObjectData } from '@/interfaces/ObjectType';
 import { PointMaterial } from '@/material/PointMaterial';
 import { RayCaster } from '@/objects/RayCaster';
-import { EDrawMode } from '@/config/define';
+import { DrawMode } from '@/config/define';
 
 class Point extends Object3D implements RenderObject {
   __internalObjectData: InternalRenderObjectData = {};
 
   geometry: BufferGeometry;
-  material: AbstractMaterial;
-  readonly type: EObjectType.renderObject = EObjectType.renderObject;
-  readonly drawMode: EDrawMode = EDrawMode.points;
+  material: PointMaterial;
+  readonly type: ObjectType.renderObject = ObjectType.renderObject;
+  readonly drawMode: DrawMode = DrawMode.points;
 
-  constructor(geometry: BufferGeometry = new BufferGeometry(), material: AbstractMaterial = new PointMaterial()) {
+  constructor(geometry: BufferGeometry = new BufferGeometry(), material: PointMaterial = new PointMaterial()) {
     super();
     this.geometry = geometry;
     this.material = material;

@@ -11,7 +11,7 @@ import {
   Scene,
   TextureLoader,
   DataTexture,
-  ETextureFormat,
+  TextureFormat,
 } from '@/index';
 
 const app = document.getElementById('app')!;

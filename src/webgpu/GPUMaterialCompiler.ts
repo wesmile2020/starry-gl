@@ -1,6 +1,6 @@
 import { AbstractMaterial } from '@/material/AbstractMaterial';
 import { GPUPipeline } from './GPUPipeline';
-import { EShaderSourceType } from '@/config/ShaderSourceType';
+import { ShaderSourceType } from '@/config/ShaderSourceType';
 import { ShaderSource } from './shaders/ShaderSource';
 import { ShaderMaterial } from '@/material/ShaderMaterial';
 import { preprocessor } from '@/utils/gpu.utils';
@@ -26,7 +26,7 @@ class GPUMaterialCompiler {
       let vertex = '';
       let fragment = '';
       const shaderType = material.getShaderType();
-      if (shaderType !== EShaderSourceType.custom) {
+      if (shaderType !== ShaderSourceType.custom) {
         vertex = ShaderSource[shaderType].vertex;
         fragment = ShaderSource[shaderType].fragment;
       } else {

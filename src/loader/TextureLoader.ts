@@ -1,7 +1,7 @@
 import { ImageTexture } from '@/texture/ImageTexture';
 import { createCanvas } from '@/utils/utils';
 import { DataTexture } from '@/texture/DataTexture';
-import { ETextureWrap } from '@/config/define';
+import { TextureWrap } from '@/config/define';
 
 interface TextureOptions {
   repeat: boolean;
@@ -42,8 +42,8 @@ class TextureLoader {
 
     const imgData = this._ctx.getImageData(0, 0, width, height);
     const texture = new DataTexture(imgData.data, imgData.width, imgData.height);
-    texture.wrapS = ETextureWrap.repeat;
-    texture.wrapT = ETextureWrap.repeat;
+    texture.wrapS = TextureWrap.repeat;
+    texture.wrapT = TextureWrap.repeat;
     return texture;
   }
 }

@@ -1,6 +1,6 @@
 import { Ray, Vector3, MathUtils } from 'starry-math';
 import { AbstractCamera } from '@/camera/AbstractCamera';
-import { EObjectType, RenderObject } from '@/interfaces/ObjectType';
+import { ObjectType, RenderObject } from '@/interfaces/ObjectType';
 import { Coordinate2D } from '@/interfaces/GeometryType';
 import { Group } from '@/objects/Group';
 
@@ -51,7 +51,7 @@ class RayCaster {
     while (arr.length !== 0) {
       const item = arr.shift()!;
       if (item.visible) {
-        if (item.type === EObjectType.groupObject) {
+        if (item.type === ObjectType.groupObject) {
           arr.unshift(...item.children);
         } else {
           const intersect = item.cast(this);

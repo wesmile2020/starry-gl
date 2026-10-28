@@ -1,7 +1,7 @@
 import earcut from 'earcut';
 import { Vector2 } from 'starry-math';
 import { ArrayPoint, Coordinate2D } from '@/interfaces/GeometryType';
-import { EAnchor } from '@/config/define';
+import { Anchor } from '@/config/define';
 
 export function bindAll<T>(methods: (keyof T | (string & {}))[], context: T) {
   for (let i = 0; i < methods.length; i += 1) {
@@ -63,17 +63,17 @@ export function arrayNeedsUint32(array: ArrayLike<number>) {
  *  |     |
  *  1 --- 3
  */
-export function createRectGeometry(point: ArrayPoint, width: number, height: number, anchor: EAnchor) {
+export function createRectGeometry(point: ArrayPoint, width: number, height: number, anchor: Anchor) {
   const AnchorMap = {
-    [EAnchor.center]: [0, 0],
-    [EAnchor.top]: [0, -0.5],
-    [EAnchor.bottom]: [0, 0.5],
-    [EAnchor.left]: [0.5, 0],
-    [EAnchor.right]: [-0.5, 0],
-    [EAnchor.topLeft]: [0.5, -0.5],
-    [EAnchor.topRight]: [-0.5, -0.5],
-    [EAnchor.bottomLeft]: [0.5, 0.5],
-    [EAnchor.bottomRight]: [0.5, -0.5],
+    [Anchor.center]: [0, 0],
+    [Anchor.top]: [0, -0.5],
+    [Anchor.bottom]: [0, 0.5],
+    [Anchor.left]: [0.5, 0],
+    [Anchor.right]: [-0.5, 0],
+    [Anchor.topLeft]: [0.5, -0.5],
+    [Anchor.topRight]: [-0.5, -0.5],
+    [Anchor.bottomLeft]: [0.5, 0.5],
+    [Anchor.bottomRight]: [0.5, -0.5],
   };
   const anchorArr = AnchorMap[anchor] || [0, 0];
   const halfWidth = width / 2;

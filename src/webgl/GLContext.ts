@@ -12,15 +12,15 @@ import {
   GL_DrawModeMapping,
   GL_BlendMapping,
   GL_BufferDataMapping,
-  EDrawSide,
-  EBlendParameter,
+  DrawSide,
+  BlendParameter,
 } from '@/config/define';
 
 interface BlendSeparateParameter {
-  srcRGB: EBlendParameter;
-  dstRGB: EBlendParameter;
-  srcAlpha: EBlendParameter;
-  dstAlpha: EBlendParameter;
+  srcRGB: BlendParameter;
+  dstRGB: BlendParameter;
+  srcAlpha: BlendParameter;
+  dstAlpha: BlendParameter;
 }
 
 class GLContext {
@@ -81,7 +81,7 @@ class GLContext {
     this._gl.disable(id);
   }
 
-  blendFuncSeparated(srcRGB: EBlendParameter, dstRGB: EBlendParameter, srcAlpha: EBlendParameter, dstAlpha: EBlendParameter) {
+  blendFuncSeparated(srcRGB: BlendParameter, dstRGB: BlendParameter, srcAlpha: BlendParameter, dstAlpha: BlendParameter) {
     const isEqual = this._blendSeparateParameter &&
       this._blendSeparateParameter.srcRGB === srcRGB &&
       this._blendSeparateParameter.dstRGB === dstRGB &&
@@ -164,13 +164,13 @@ class GLContext {
       this.disable(this._gl.DEPTH_TEST);
     }
 
-    if (material.side === EDrawSide.double) {
+    if (material.side === DrawSide.double) {
       this.disable(this._gl.CULL_FACE);
     } else {
       this.enable(this._gl.CULL_FACE);
-      if (material.side === EDrawSide.front) {
+      if (material.side === DrawSide.front) {
         this._gl.cullFace(this._gl.BACK);
-      } else if (material.side === EDrawSide.back) {
+      } else if (material.side === DrawSide.back) {
         this._gl.cullFace(this._gl.FRONT);
       }
     }

@@ -4,7 +4,7 @@ import { bindAll, createCanvas } from '@/utils/utils';
 import { GLContext } from './GLContext';
 import { AbstractCamera } from '@/camera/AbstractCamera';
 import { Scene } from '@/objects/Scene';
-import { EObjectType } from '@/interfaces/ObjectType';
+import { ObjectType } from '@/interfaces/ObjectType';
 
 class WebGLRenderer extends EventDispatcher {
   autoClear: boolean = true;
@@ -91,7 +91,7 @@ class WebGLRenderer extends EventDispatcher {
     while (queue.length > 0) {
       const item = queue.shift()!;
       if (item.visible) {
-        if (item.type === EObjectType.groupObject) {
+        if (item.type === ObjectType.groupObject) {
           queue.unshift(...item.children);
         } else {
           this._context.drawObject(camera, item, this._isFirstDrawAfterContextRestore);

@@ -4,7 +4,7 @@ import { createCanvas, requestGPUDevice } from '@/utils/utils';
 import { GPUContext } from './GPUContext';
 import { Scene } from '@/objects/Scene';
 import { AbstractCamera } from '@/camera/AbstractCamera';
-import { EObjectType } from '@/interfaces/ObjectType';
+import { ObjectType } from '@/interfaces/ObjectType';
 
 class WebGPURenderer extends EventDispatcher {
   autoClear: boolean = true;
@@ -67,7 +67,7 @@ class WebGPURenderer extends EventDispatcher {
     while (queue.length > 0) {
       const item = queue.shift()!;
       if (item.visible) {
-        if (item.type === EObjectType.groupObject) {
+        if (item.type === ObjectType.groupObject) {
           queue.unshift(...item.children);
         } else {
           this._context.drawObject(camera, item);

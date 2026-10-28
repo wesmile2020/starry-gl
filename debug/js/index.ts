@@ -17,8 +17,8 @@ import {
   Polyline,
   PolylineGeometry,
   PolylineMaterial,
-  EAnchor,
-  EAlignment,
+  Anchor,
+  Alignment,
   version,
 } from '@/index';
 import { PartialArrayPoint } from '@/interfaces/GeometryType';
@@ -47,7 +47,7 @@ new MapControl(app, control);
 const glyphMng = new GlyphManager();
 
 const textMaterial = new TextMaterial({
-  alignment: EAlignment.camera,
+  alignment: Alignment.camera,
   haloWidth: 0.4,
   size: 48,
   haloColor: '#1ad',
@@ -60,7 +60,7 @@ const imageData = glyphMng.draw('Cascadia Mono', '欢迎你,StarryGL', {
 const texture = glyphMng.createTexture(imageData);
 textMaterial.map = texture;
 
-const geometry = new SymbolGeometry([0, 100, 0], [texture.width, texture.height], EAnchor.center);
+const geometry = new SymbolGeometry([0, 100, 0], [texture.width, texture.height], Anchor.center);
 const text = new Text(geometry, textMaterial);
 scene.add(text);
 

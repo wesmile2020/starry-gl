@@ -1,6 +1,6 @@
 import { MathUtils } from 'starry-math';
 import { Group } from '@/objects/Group';
-import { EObjectType, RenderObject } from '@/interfaces/ObjectType';
+import { ObjectType, RenderObject } from '@/interfaces/ObjectType';
 
 type SceneObject = Group | RenderObject;
 
@@ -24,7 +24,7 @@ class Scene {
   sortObject() {
     for (let i = 0; i < this._children.length; i += 1) {
       const item = this._children[i];
-      if (item.type === EObjectType.groupObject) {
+      if (item.type === ObjectType.groupObject) {
         item.sortObject();
       }
     }

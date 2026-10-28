@@ -691,7 +691,7 @@ export const enum GL_CONSTANT {
   MAX_CLIENT_WAIT_TIMEOUT_WEBGL                 = 0x9247,
 }
 
-export const enum EAnchor {
+export const enum Anchor {
   top,
   bottom,
   left,
@@ -703,12 +703,12 @@ export const enum EAnchor {
   bottomRight,
 }
 
-export const enum EAlignment {
+export const enum Alignment {
   camera,
   viewport,
 }
 
-export const enum EDrawMode {
+export const enum DrawMode {
   points,
   lines,
   lineStrip,
@@ -716,7 +716,7 @@ export const enum EDrawMode {
   triangleStrip,
 };
 
-export const enum EBlendParameter {
+export const enum BlendParameter {
   zero,
   one,
   srcColor,
@@ -734,7 +734,7 @@ export const enum EBlendParameter {
   srcAlphaSaturate,
 }
 
-export const enum ETextureFilter {
+export const enum TextureFilter {
   nearest,
   linear,
   nearestMipmapNearest,
@@ -743,13 +743,13 @@ export const enum ETextureFilter {
   linearMipmapLinear,
 }
 
-export const enum ETextureWrap {
+export const enum TextureWrap {
   clamToEdge,
   mirroredRepeat,
   repeat,
 }
 
-export const enum ETextureFormat {
+export const enum TextureFormat {
   /* 基本颜色通道 */
   r8,
   rg8,
@@ -796,58 +796,58 @@ export const enum ETextureFormat {
   rgba32f,
 }
 
-export const enum EBufferDataType {
+export const enum BufferDataType {
   float32,
   uint8,
   uint16,
   uint32,
 }
 
-export const enum EDrawSide {
+export const enum DrawSide {
   front,
   back,
   double,
 }
 
-export const GL_TextureFilterMapping: Record<ETextureFilter, number> = {
-  [ETextureFilter.nearest]: GL_CONSTANT.NEAREST,
-  [ETextureFilter.linear]: GL_CONSTANT.LINEAR,
-  [ETextureFilter.nearestMipmapNearest]: GL_CONSTANT.NEAREST_MIPMAP_NEAREST,
-  [ETextureFilter.linearMipmapNearest]: GL_CONSTANT.LINEAR_MIPMAP_NEAREST,
-  [ETextureFilter.nearestMipmapLinear]: GL_CONSTANT.NEAREST_MIPMAP_LINEAR,
-  [ETextureFilter.linearMipmapLinear]: GL_CONSTANT.LINEAR_MIPMAP_LINEAR,
+export const GL_TextureFilterMapping: Record<TextureFilter, number> = {
+  [TextureFilter.nearest]: GL_CONSTANT.NEAREST,
+  [TextureFilter.linear]: GL_CONSTANT.LINEAR,
+  [TextureFilter.nearestMipmapNearest]: GL_CONSTANT.NEAREST_MIPMAP_NEAREST,
+  [TextureFilter.linearMipmapNearest]: GL_CONSTANT.LINEAR_MIPMAP_NEAREST,
+  [TextureFilter.nearestMipmapLinear]: GL_CONSTANT.NEAREST_MIPMAP_LINEAR,
+  [TextureFilter.linearMipmapLinear]: GL_CONSTANT.LINEAR_MIPMAP_LINEAR,
 };
 
-export const GL_TextureWrapMapping: Record<ETextureWrap, number> = {
-  [ETextureWrap.clamToEdge]: GL_CONSTANT.CLAMP_TO_EDGE,
-  [ETextureWrap.mirroredRepeat]: GL_CONSTANT.MIRRORED_REPEAT,
-  [ETextureWrap.repeat]: GL_CONSTANT.REPEAT,
+export const GL_TextureWrapMapping: Record<TextureWrap, number> = {
+  [TextureWrap.clamToEdge]: GL_CONSTANT.CLAMP_TO_EDGE,
+  [TextureWrap.mirroredRepeat]: GL_CONSTANT.MIRRORED_REPEAT,
+  [TextureWrap.repeat]: GL_CONSTANT.REPEAT,
 };
 
-export const GL_DrawModeMapping: Record<EDrawMode, number> = {
-  [EDrawMode.points]: GL_CONSTANT.POINTS,
-  [EDrawMode.lines]: GL_CONSTANT.LINES,
-  [EDrawMode.lineStrip]: GL_CONSTANT.LINE_STRIP,
-  [EDrawMode.triangles]: GL_CONSTANT.TRIANGLES,
-  [EDrawMode.triangleStrip]: GL_CONSTANT.TRIANGLE_STRIP,
+export const GL_DrawModeMapping: Record<DrawMode, number> = {
+  [DrawMode.points]: GL_CONSTANT.POINTS,
+  [DrawMode.lines]: GL_CONSTANT.LINES,
+  [DrawMode.lineStrip]: GL_CONSTANT.LINE_STRIP,
+  [DrawMode.triangles]: GL_CONSTANT.TRIANGLES,
+  [DrawMode.triangleStrip]: GL_CONSTANT.TRIANGLE_STRIP,
 };
 
-export const GL_BlendMapping: Record<EBlendParameter, number> = {
-  [EBlendParameter.zero]: GL_CONSTANT.ZERO,
-  [EBlendParameter.one]: GL_CONSTANT.ONE,
-  [EBlendParameter.srcColor]: GL_CONSTANT.SRC_COLOR,
-  [EBlendParameter.oneMinusSrcColor]: GL_CONSTANT.ONE_MINUS_SRC_COLOR,
-  [EBlendParameter.dstColor]: GL_CONSTANT.DST_COLOR,
-  [EBlendParameter.oneMinusDstColor]: GL_CONSTANT.ONE_MINUS_DST_COLOR,
-  [EBlendParameter.srcAlpha]: GL_CONSTANT.SRC_ALPHA,
-  [EBlendParameter.oneMinusSrcAlpha]: GL_CONSTANT.ONE_MINUS_SRC_ALPHA,
-  [EBlendParameter.dstAlpha]: GL_CONSTANT.DST_ALPHA,
-  [EBlendParameter.oneMinusDstAlpha]: GL_CONSTANT.ONE_MINUS_DST_ALPHA,
-  [EBlendParameter.constantColor]: GL_CONSTANT.CONSTANT_COLOR,
-  [EBlendParameter.oneMinusConstantColor]: GL_CONSTANT.ONE_MINUS_CONSTANT_COLOR,
-  [EBlendParameter.constantAlpha]: GL_CONSTANT.CONSTANT_ALPHA,
-  [EBlendParameter.oneMinusConstantAlpha]: GL_CONSTANT.ONE_MINUS_CONSTANT_ALPHA,
-  [EBlendParameter.srcAlphaSaturate]: GL_CONSTANT.SRC_ALPHA_SATURATE,
+export const GL_BlendMapping: Record<BlendParameter, number> = {
+  [BlendParameter.zero]: GL_CONSTANT.ZERO,
+  [BlendParameter.one]: GL_CONSTANT.ONE,
+  [BlendParameter.srcColor]: GL_CONSTANT.SRC_COLOR,
+  [BlendParameter.oneMinusSrcColor]: GL_CONSTANT.ONE_MINUS_SRC_COLOR,
+  [BlendParameter.dstColor]: GL_CONSTANT.DST_COLOR,
+  [BlendParameter.oneMinusDstColor]: GL_CONSTANT.ONE_MINUS_DST_COLOR,
+  [BlendParameter.srcAlpha]: GL_CONSTANT.SRC_ALPHA,
+  [BlendParameter.oneMinusSrcAlpha]: GL_CONSTANT.ONE_MINUS_SRC_ALPHA,
+  [BlendParameter.dstAlpha]: GL_CONSTANT.DST_ALPHA,
+  [BlendParameter.oneMinusDstAlpha]: GL_CONSTANT.ONE_MINUS_DST_ALPHA,
+  [BlendParameter.constantColor]: GL_CONSTANT.CONSTANT_COLOR,
+  [BlendParameter.oneMinusConstantColor]: GL_CONSTANT.ONE_MINUS_CONSTANT_COLOR,
+  [BlendParameter.constantAlpha]: GL_CONSTANT.CONSTANT_ALPHA,
+  [BlendParameter.oneMinusConstantAlpha]: GL_CONSTANT.ONE_MINUS_CONSTANT_ALPHA,
+  [BlendParameter.srcAlphaSaturate]: GL_CONSTANT.SRC_ALPHA_SATURATE,
 };
 
 interface GLTextureType {
@@ -856,341 +856,341 @@ interface GLTextureType {
   type: number;
 }
 
-export const GL_TextureFormatMapping: Record<ETextureFormat, GLTextureType> = {
-  [ETextureFormat.r8]: {
+export const GL_TextureFormatMapping: Record<TextureFormat, GLTextureType> = {
+  [TextureFormat.r8]: {
     internalFormat: GL_CONSTANT.R8,
     format: GL_CONSTANT.RED,
     type: GL_CONSTANT.UNSIGNED_BYTE,
   },
-  [ETextureFormat.rg8]: {
+  [TextureFormat.rg8]: {
     internalFormat: GL_CONSTANT.RG8,
     format: GL_CONSTANT.RG,
     type: GL_CONSTANT.UNSIGNED_BYTE,
   },
-  [ETextureFormat.rgb8]: {
+  [TextureFormat.rgb8]: {
     internalFormat: GL_CONSTANT.RGB,
     format: GL_CONSTANT.RGB,
     type: GL_CONSTANT.UNSIGNED_BYTE,
   },
-  [ETextureFormat.rgba8]: {
+  [TextureFormat.rgba8]: {
     internalFormat: GL_CONSTANT.RGBA,
     format: GL_CONSTANT.RGBA,
     type: GL_CONSTANT.UNSIGNED_BYTE,
   },
-  [ETextureFormat.alpha8]: {
+  [TextureFormat.alpha8]: {
     internalFormat: GL_CONSTANT.ALPHA,
     format: GL_CONSTANT.ALPHA,
     type: GL_CONSTANT.UNSIGNED_BYTE,
   },
-  [ETextureFormat.luminance8]: {
+  [TextureFormat.luminance8]: {
     internalFormat: GL_CONSTANT.LUMINANCE,
     format: GL_CONSTANT.LUMINANCE,
     type: GL_CONSTANT.UNSIGNED_BYTE,
   },
-  [ETextureFormat.luminanceAlpha8]: {
+  [TextureFormat.luminanceAlpha8]: {
     internalFormat: GL_CONSTANT.LUMINANCE_ALPHA,
     format: GL_CONSTANT.LUMINANCE_ALPHA,
     type: GL_CONSTANT.UNSIGNED_BYTE,
   },
-  [ETextureFormat.r8i]: {
+  [TextureFormat.r8i]: {
     internalFormat: GL_CONSTANT.R8I,
     format: GL_CONSTANT.RED_INTEGER,
     type: GL_CONSTANT.BYTE,
   },
-  [ETextureFormat.r8ui]: {
+  [TextureFormat.r8ui]: {
     internalFormat: GL_CONSTANT.R8UI,
     format: GL_CONSTANT.RED_INTEGER,
     type: GL_CONSTANT.UNSIGNED_BYTE,
   },
-  [ETextureFormat.rg8i]: {
+  [TextureFormat.rg8i]: {
     internalFormat: GL_CONSTANT.RG8I,
     format: GL_CONSTANT.RG_INTEGER,
     type: GL_CONSTANT.BYTE,
   },
-  [ETextureFormat.rg8ui]: {
+  [TextureFormat.rg8ui]: {
     internalFormat: GL_CONSTANT.RG8UI,
     format: GL_CONSTANT.RG_INTEGER,
     type: GL_CONSTANT.UNSIGNED_BYTE,
   },
-  [ETextureFormat.rgb8i]: {
+  [TextureFormat.rgb8i]: {
     internalFormat: GL_CONSTANT.RGB8I,
     format: GL_CONSTANT.RGB_INTEGER,
     type: GL_CONSTANT.BYTE,
   },
-  [ETextureFormat.rgb8ui]: {
+  [TextureFormat.rgb8ui]: {
     internalFormat: GL_CONSTANT.RGB8UI,
     format: GL_CONSTANT.RGB_INTEGER,
     type: GL_CONSTANT.UNSIGNED_BYTE,
   },
-  [ETextureFormat.rgba8i]: {
+  [TextureFormat.rgba8i]: {
     internalFormat: GL_CONSTANT.RGBA8I,
     format: GL_CONSTANT.RGBA_INTEGER,
     type: GL_CONSTANT.BYTE,
   },
-  [ETextureFormat.rgba8ui]: {
+  [TextureFormat.rgba8ui]: {
     internalFormat: GL_CONSTANT.RGBA8UI,
     format: GL_CONSTANT.RGBA_INTEGER,
     type: GL_CONSTANT.UNSIGNED_BYTE,
   },
-  [ETextureFormat.r16i]: {
+  [TextureFormat.r16i]: {
     internalFormat: GL_CONSTANT.R16I,
     format: GL_CONSTANT.RED_INTEGER,
     type: GL_CONSTANT.SHORT,
   },
-  [ETextureFormat.r16ui]: {
+  [TextureFormat.r16ui]: {
     internalFormat: GL_CONSTANT.R16UI,
     format: GL_CONSTANT.RED_INTEGER,
     type: GL_CONSTANT.UNSIGNED_SHORT,
   },
-  [ETextureFormat.rg16i]: {
+  [TextureFormat.rg16i]: {
     internalFormat: GL_CONSTANT.RG16I,
     format: GL_CONSTANT.RG_INTEGER,
     type: GL_CONSTANT.SHORT,
   },
-  [ETextureFormat.rg16ui]: {
+  [TextureFormat.rg16ui]: {
     internalFormat: GL_CONSTANT.RG16UI,
     format: GL_CONSTANT.RG_INTEGER,
     type: GL_CONSTANT.UNSIGNED_SHORT,
   },
-  [ETextureFormat.rgb16i]: {
+  [TextureFormat.rgb16i]: {
     internalFormat: GL_CONSTANT.RGB16I,
     format: GL_CONSTANT.RGB_INTEGER,
     type: GL_CONSTANT.SHORT,
   },
-  [ETextureFormat.rgb16ui]: {
+  [TextureFormat.rgb16ui]: {
     internalFormat: GL_CONSTANT.RGB16UI,
     format: GL_CONSTANT.RGB_INTEGER,
     type: GL_CONSTANT.UNSIGNED_SHORT,
   },
-  [ETextureFormat.rgba16i]: {
+  [TextureFormat.rgba16i]: {
     internalFormat: GL_CONSTANT.RGBA16I,
     format: GL_CONSTANT.RGBA_INTEGER,
     type: GL_CONSTANT.SHORT,
   },
-  [ETextureFormat.rgba16ui]: {
+  [TextureFormat.rgba16ui]: {
     internalFormat: GL_CONSTANT.RGBA16UI,
     format: GL_CONSTANT.RGBA_INTEGER,
     type: GL_CONSTANT.UNSIGNED_SHORT,
   },
-  [ETextureFormat.r32i]: {
+  [TextureFormat.r32i]: {
     internalFormat: GL_CONSTANT.R32I,
     format: GL_CONSTANT.RED_INTEGER,
     type: GL_CONSTANT.INT,
   },
-  [ETextureFormat.r32ui]: {
+  [TextureFormat.r32ui]: {
     internalFormat: GL_CONSTANT.R32UI,
     format: GL_CONSTANT.RED_INTEGER,
     type: GL_CONSTANT.UNSIGNED_INT,
   },
-  [ETextureFormat.rg32i]: {
+  [TextureFormat.rg32i]: {
     internalFormat: GL_CONSTANT.RG32I,
     format: GL_CONSTANT.RG_INTEGER,
     type: GL_CONSTANT.INT,
   },
-  [ETextureFormat.rg32ui]: {
+  [TextureFormat.rg32ui]: {
     internalFormat: GL_CONSTANT.RG32UI,
     format: GL_CONSTANT.RG_INTEGER,
     type: GL_CONSTANT.UNSIGNED_INT,
   },
-  [ETextureFormat.rgb32i]: {
+  [TextureFormat.rgb32i]: {
     internalFormat: GL_CONSTANT.RGB32I,
     format: GL_CONSTANT.RGB_INTEGER,
     type: GL_CONSTANT.INT,
   },
-  [ETextureFormat.rgb32ui]: {
+  [TextureFormat.rgb32ui]: {
     internalFormat: GL_CONSTANT.RGB32UI,
     format: GL_CONSTANT.RGB_INTEGER,
     type: GL_CONSTANT.UNSIGNED_INT,
   },
-  [ETextureFormat.rgba32i]: {
+  [TextureFormat.rgba32i]: {
     internalFormat: GL_CONSTANT.RGBA32I,
     format: GL_CONSTANT.RGBA_INTEGER,
     type: GL_CONSTANT.INT,
   },
-  [ETextureFormat.rgba32ui]: {
+  [TextureFormat.rgba32ui]: {
     internalFormat: GL_CONSTANT.RGBA32UI,
     format: GL_CONSTANT.RGBA_INTEGER,
     type: GL_CONSTANT.UNSIGNED_INT,
   },
-  [ETextureFormat.r16f]: {
+  [TextureFormat.r16f]: {
     internalFormat: GL_CONSTANT.R16F,
     format: GL_CONSTANT.RED,
     type: GL_CONSTANT.FLOAT,
   },
-  [ETextureFormat.rg16f]: {
+  [TextureFormat.rg16f]: {
     internalFormat: GL_CONSTANT.RG16F,
     format: GL_CONSTANT.RG,
     type: GL_CONSTANT.FLOAT,
   },
-  [ETextureFormat.rgb16f]: {
+  [TextureFormat.rgb16f]: {
     internalFormat: GL_CONSTANT.RGB16F,
     format: GL_CONSTANT.RGB,
     type: GL_CONSTANT.FLOAT,
   },
-  [ETextureFormat.rgba16f]: {
+  [TextureFormat.rgba16f]: {
     internalFormat: GL_CONSTANT.RGBA16F,
     format: GL_CONSTANT.RGBA,
     type: GL_CONSTANT.FLOAT,
   },
-  [ETextureFormat.r32f]: {
+  [TextureFormat.r32f]: {
     internalFormat: GL_CONSTANT.R32F,
     format: GL_CONSTANT.RED,
     type: GL_CONSTANT.FLOAT,
   },
-  [ETextureFormat.rg32f]: {
+  [TextureFormat.rg32f]: {
     internalFormat: GL_CONSTANT.RG32F,
     format: GL_CONSTANT.RG,
     type: GL_CONSTANT.FLOAT,
   },
-  [ETextureFormat.rgb32f]: {
+  [TextureFormat.rgb32f]: {
     internalFormat: GL_CONSTANT.RGB32F,
     format: GL_CONSTANT.RGB,
     type: GL_CONSTANT.FLOAT,
   },
-  [ETextureFormat.rgba32f]: {
+  [TextureFormat.rgba32f]: {
     internalFormat: GL_CONSTANT.RGBA32F,
     format: GL_CONSTANT.RGBA,
     type: GL_CONSTANT.FLOAT,
   },
 };
 
-export const GL_BufferDataMapping: Record<EBufferDataType, number> = {
-  [EBufferDataType.uint8]: GL_CONSTANT.UNSIGNED_BYTE,
-  [EBufferDataType.uint16]: GL_CONSTANT.UNSIGNED_SHORT,
-  [EBufferDataType.uint32]: GL_CONSTANT.UNSIGNED_INT,
-  [EBufferDataType.float32]: GL_CONSTANT.FLOAT,
+export const GL_BufferDataMapping: Record<BufferDataType, number> = {
+  [BufferDataType.uint8]: GL_CONSTANT.UNSIGNED_BYTE,
+  [BufferDataType.uint16]: GL_CONSTANT.UNSIGNED_SHORT,
+  [BufferDataType.uint32]: GL_CONSTANT.UNSIGNED_INT,
+  [BufferDataType.float32]: GL_CONSTANT.FLOAT,
 };
 
 /* web gpu mapping */
-export const GPU_TextureChannelMapping: Record<ETextureFormat, number> = {
-  [ETextureFormat.r8]: 1,
-  [ETextureFormat.rg8]: 2,
-  [ETextureFormat.rgb8]: 3,
-  [ETextureFormat.rgba8]: 4,
-  [ETextureFormat.alpha8]: 1,
-  [ETextureFormat.luminance8]: 1,
-  [ETextureFormat.luminanceAlpha8]: 2,
-  [ETextureFormat.r8i]: 1,
-  [ETextureFormat.r8ui]: 1,
-  [ETextureFormat.rg8i]: 2,
-  [ETextureFormat.rg8ui]: 2,
-  [ETextureFormat.rgb8i]: 3,
-  [ETextureFormat.rgb8ui]: 3,
-  [ETextureFormat.rgba8i]: 4,
-  [ETextureFormat.rgba8ui]: 4,
-  [ETextureFormat.r16i]: 1,
-  [ETextureFormat.r16ui]: 1,
-  [ETextureFormat.rg16i]: 2,
-  [ETextureFormat.rg16ui]: 2,
-  [ETextureFormat.rgb16i]: 3,
-  [ETextureFormat.rgb16ui]: 3,
-  [ETextureFormat.rgba16i]: 4,
-  [ETextureFormat.rgba16ui]: 4,
-  [ETextureFormat.r32i]: 1,
-  [ETextureFormat.r32ui]: 1,
-  [ETextureFormat.rg32i]: 2,
-  [ETextureFormat.rg32ui]: 2,
-  [ETextureFormat.rgb32i]: 3,
-  [ETextureFormat.rgb32ui]: 3,
-  [ETextureFormat.rgba32i]: 4,
-  [ETextureFormat.rgba32ui]: 4,
-  [ETextureFormat.r16f]: 1,
-  [ETextureFormat.rg16f]: 2,
-  [ETextureFormat.rgb16f]: 3,
-  [ETextureFormat.rgba16f]: 4,
-  [ETextureFormat.r32f]: 1,
-  [ETextureFormat.rg32f]: 2,
-  [ETextureFormat.rgb32f]: 3,
-  [ETextureFormat.rgba32f]: 4,
+export const GPU_TextureChannelMapping: Record<TextureFormat, number> = {
+  [TextureFormat.r8]: 1,
+  [TextureFormat.rg8]: 2,
+  [TextureFormat.rgb8]: 3,
+  [TextureFormat.rgba8]: 4,
+  [TextureFormat.alpha8]: 1,
+  [TextureFormat.luminance8]: 1,
+  [TextureFormat.luminanceAlpha8]: 2,
+  [TextureFormat.r8i]: 1,
+  [TextureFormat.r8ui]: 1,
+  [TextureFormat.rg8i]: 2,
+  [TextureFormat.rg8ui]: 2,
+  [TextureFormat.rgb8i]: 3,
+  [TextureFormat.rgb8ui]: 3,
+  [TextureFormat.rgba8i]: 4,
+  [TextureFormat.rgba8ui]: 4,
+  [TextureFormat.r16i]: 1,
+  [TextureFormat.r16ui]: 1,
+  [TextureFormat.rg16i]: 2,
+  [TextureFormat.rg16ui]: 2,
+  [TextureFormat.rgb16i]: 3,
+  [TextureFormat.rgb16ui]: 3,
+  [TextureFormat.rgba16i]: 4,
+  [TextureFormat.rgba16ui]: 4,
+  [TextureFormat.r32i]: 1,
+  [TextureFormat.r32ui]: 1,
+  [TextureFormat.rg32i]: 2,
+  [TextureFormat.rg32ui]: 2,
+  [TextureFormat.rgb32i]: 3,
+  [TextureFormat.rgb32ui]: 3,
+  [TextureFormat.rgba32i]: 4,
+  [TextureFormat.rgba32ui]: 4,
+  [TextureFormat.r16f]: 1,
+  [TextureFormat.rg16f]: 2,
+  [TextureFormat.rgb16f]: 3,
+  [TextureFormat.rgba16f]: 4,
+  [TextureFormat.r32f]: 1,
+  [TextureFormat.rg32f]: 2,
+  [TextureFormat.rgb32f]: 3,
+  [TextureFormat.rgba32f]: 4,
 };
 
-export const GPU_TextureFormatMapping: Record<ETextureFormat, GPUTextureFormat> = {
-  [ETextureFormat.r8]: 'r8unorm',
-  [ETextureFormat.rg8]: 'rg8unorm',
-  [ETextureFormat.rgb8]: 'rgba8unorm',
-  [ETextureFormat.rgba8]: 'rgba8unorm',
-  [ETextureFormat.alpha8]: 'r8unorm',
-  [ETextureFormat.luminance8]: 'r8unorm',
-  [ETextureFormat.luminanceAlpha8]: 'rg8unorm',
-  [ETextureFormat.r8i]: 'r8sint',
-  [ETextureFormat.r8ui]: 'r8uint',
-  [ETextureFormat.rg8i]: 'rg8sint',
-  [ETextureFormat.rg8ui]: 'rg8uint',
-  [ETextureFormat.rgb8i]: 'rgba8sint',
-  [ETextureFormat.rgb8ui]: 'rgba8uint',
-  [ETextureFormat.rgba8i]: 'rgba8sint',
-  [ETextureFormat.rgba8ui]: 'rgba8uint',
-  [ETextureFormat.r16i]: 'r16sint',
-  [ETextureFormat.r16ui]: 'r16uint',
-  [ETextureFormat.rg16i]: 'rg16sint',
-  [ETextureFormat.rg16ui]: 'rg16uint',
-  [ETextureFormat.rgb16i]: 'rgba16sint',
-  [ETextureFormat.rgb16ui]: 'rgba16uint',
-  [ETextureFormat.rgba16i]: 'rgba16sint',
-  [ETextureFormat.rgba16ui]: 'rgba16uint',
-  [ETextureFormat.r32i]: 'r32sint',
-  [ETextureFormat.r32ui]: 'r32uint',
-  [ETextureFormat.rg32i]: 'rg32sint',
-  [ETextureFormat.rg32ui]: 'rg32uint',
-  [ETextureFormat.rgb32i]: 'rgba32sint',
-  [ETextureFormat.rgb32ui]: 'rgba32uint',
-  [ETextureFormat.rgba32i]: 'rgba32sint',
-  [ETextureFormat.rgba32ui]: 'rgba32uint',
-  [ETextureFormat.r16f]: 'r16float',
-  [ETextureFormat.rg16f]: 'rg16float',
-  [ETextureFormat.rgb16f]: 'rgba16float',
-  [ETextureFormat.rgba16f]: 'rgba16float',
-  [ETextureFormat.r32f]: 'r32float',
-  [ETextureFormat.rg32f]: 'rg32float',
-  [ETextureFormat.rgb32f]: 'rgba32float',
-  [ETextureFormat.rgba32f]: 'rgba32float',
+export const GPU_TextureFormatMapping: Record<TextureFormat, GPUTextureFormat> = {
+  [TextureFormat.r8]: 'r8unorm',
+  [TextureFormat.rg8]: 'rg8unorm',
+  [TextureFormat.rgb8]: 'rgba8unorm',
+  [TextureFormat.rgba8]: 'rgba8unorm',
+  [TextureFormat.alpha8]: 'r8unorm',
+  [TextureFormat.luminance8]: 'r8unorm',
+  [TextureFormat.luminanceAlpha8]: 'rg8unorm',
+  [TextureFormat.r8i]: 'r8sint',
+  [TextureFormat.r8ui]: 'r8uint',
+  [TextureFormat.rg8i]: 'rg8sint',
+  [TextureFormat.rg8ui]: 'rg8uint',
+  [TextureFormat.rgb8i]: 'rgba8sint',
+  [TextureFormat.rgb8ui]: 'rgba8uint',
+  [TextureFormat.rgba8i]: 'rgba8sint',
+  [TextureFormat.rgba8ui]: 'rgba8uint',
+  [TextureFormat.r16i]: 'r16sint',
+  [TextureFormat.r16ui]: 'r16uint',
+  [TextureFormat.rg16i]: 'rg16sint',
+  [TextureFormat.rg16ui]: 'rg16uint',
+  [TextureFormat.rgb16i]: 'rgba16sint',
+  [TextureFormat.rgb16ui]: 'rgba16uint',
+  [TextureFormat.rgba16i]: 'rgba16sint',
+  [TextureFormat.rgba16ui]: 'rgba16uint',
+  [TextureFormat.r32i]: 'r32sint',
+  [TextureFormat.r32ui]: 'r32uint',
+  [TextureFormat.rg32i]: 'rg32sint',
+  [TextureFormat.rg32ui]: 'rg32uint',
+  [TextureFormat.rgb32i]: 'rgba32sint',
+  [TextureFormat.rgb32ui]: 'rgba32uint',
+  [TextureFormat.rgba32i]: 'rgba32sint',
+  [TextureFormat.rgba32ui]: 'rgba32uint',
+  [TextureFormat.r16f]: 'r16float',
+  [TextureFormat.rg16f]: 'rg16float',
+  [TextureFormat.rgb16f]: 'rgba16float',
+  [TextureFormat.rgba16f]: 'rgba16float',
+  [TextureFormat.r32f]: 'r32float',
+  [TextureFormat.rg32f]: 'rg32float',
+  [TextureFormat.rgb32f]: 'rgba32float',
+  [TextureFormat.rgba32f]: 'rgba32float',
 };
 
-export const GPU_TextureFilterMapping: Record<ETextureFilter, GPUFilterMode> = {
-  [ETextureFilter.linear]: 'linear',
-  [ETextureFilter.nearest]: 'nearest',
-  [ETextureFilter.linearMipmapLinear]: 'linear',
-  [ETextureFilter.linearMipmapNearest]: 'linear',
-  [ETextureFilter.nearestMipmapLinear]: 'nearest',
-  [ETextureFilter.nearestMipmapNearest]: 'nearest',
+export const GPU_TextureFilterMapping: Record<TextureFilter, GPUFilterMode> = {
+  [TextureFilter.linear]: 'linear',
+  [TextureFilter.nearest]: 'nearest',
+  [TextureFilter.linearMipmapLinear]: 'linear',
+  [TextureFilter.linearMipmapNearest]: 'linear',
+  [TextureFilter.nearestMipmapLinear]: 'nearest',
+  [TextureFilter.nearestMipmapNearest]: 'nearest',
 };
 
-export const GPU_TextureWrapMapping: Record<ETextureWrap, GPUAddressMode> = {
-  [ETextureWrap.clamToEdge]: 'clamp-to-edge',
-  [ETextureWrap.repeat]: 'repeat',
-  [ETextureWrap.mirroredRepeat]: 'mirror-repeat',
+export const GPU_TextureWrapMapping: Record<TextureWrap, GPUAddressMode> = {
+  [TextureWrap.clamToEdge]: 'clamp-to-edge',
+  [TextureWrap.repeat]: 'repeat',
+  [TextureWrap.mirroredRepeat]: 'mirror-repeat',
 };
 
-export const GPU_DrawModeMapping: Record<EDrawMode, GPUPrimitiveTopology> = {
-  [EDrawMode.points]: 'point-list',
-  [EDrawMode.lines]: 'line-list',
-  [EDrawMode.lineStrip]: 'line-strip',
-  [EDrawMode.triangles]: 'triangle-list',
-  [EDrawMode.triangleStrip]: 'triangle-strip',
+export const GPU_DrawModeMapping: Record<DrawMode, GPUPrimitiveTopology> = {
+  [DrawMode.points]: 'point-list',
+  [DrawMode.lines]: 'line-list',
+  [DrawMode.lineStrip]: 'line-strip',
+  [DrawMode.triangles]: 'triangle-list',
+  [DrawMode.triangleStrip]: 'triangle-strip',
 }
 
-export const GPU_CullModeMapping: Record<EDrawSide, GPUCullMode> = {
-  [EDrawSide.double]: 'none',
-  [EDrawSide.back]: 'front',
-  [EDrawSide.front]: 'back',
+export const GPU_CullModeMapping: Record<DrawSide, GPUCullMode> = {
+  [DrawSide.double]: 'none',
+  [DrawSide.back]: 'front',
+  [DrawSide.front]: 'back',
 }
 
-export const GPU_BlendMapping: Record<EBlendParameter, GPUBlendFactor> = {
-  [EBlendParameter.one]: 'one',
-  [EBlendParameter.zero]: 'zero',
-  [EBlendParameter.srcColor]: 'src',
-  [EBlendParameter.oneMinusSrcColor]: 'one-minus-src',
-  [EBlendParameter.dstColor]: 'dst',
-  [EBlendParameter.oneMinusDstColor]: 'one-minus-dst',
-  [EBlendParameter.srcAlpha]: 'src-alpha',
-  [EBlendParameter.oneMinusSrcAlpha]: 'one-minus-src-alpha',
-  [EBlendParameter.dstAlpha]: 'dst-alpha',
-  [EBlendParameter.oneMinusDstAlpha]: 'one-minus-dst-alpha',
-  [EBlendParameter.constantColor]: 'constant',
-  [EBlendParameter.oneMinusConstantColor]: 'one-minus-constant',
-  [EBlendParameter.constantAlpha]: 'constant',
-  [EBlendParameter.oneMinusConstantAlpha]: 'one-minus-constant',
-  [EBlendParameter.srcAlphaSaturate]: 'src-alpha-saturated',
+export const GPU_BlendMapping: Record<BlendParameter, GPUBlendFactor> = {
+  [BlendParameter.one]: 'one',
+  [BlendParameter.zero]: 'zero',
+  [BlendParameter.srcColor]: 'src',
+  [BlendParameter.oneMinusSrcColor]: 'one-minus-src',
+  [BlendParameter.dstColor]: 'dst',
+  [BlendParameter.oneMinusDstColor]: 'one-minus-dst',
+  [BlendParameter.srcAlpha]: 'src-alpha',
+  [BlendParameter.oneMinusSrcAlpha]: 'one-minus-src-alpha',
+  [BlendParameter.dstAlpha]: 'dst-alpha',
+  [BlendParameter.oneMinusDstAlpha]: 'one-minus-dst-alpha',
+  [BlendParameter.constantColor]: 'constant',
+  [BlendParameter.oneMinusConstantColor]: 'one-minus-constant',
+  [BlendParameter.constantAlpha]: 'constant',
+  [BlendParameter.oneMinusConstantAlpha]: 'one-minus-constant',
+  [BlendParameter.srcAlphaSaturate]: 'src-alpha-saturated',
 }
 
 export const GPU_SAMPLE_COUNT = 4;

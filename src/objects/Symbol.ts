@@ -1,19 +1,19 @@
 import { Vector3, Vector2, Matrix4 } from 'starry-math';
 import { Object3D } from '@/objects/Object3D';
 import { SymbolGeometry } from '@/geometry/SymbolGeometry';
-import { Intersection, EObjectType, RenderObject, InternalRenderObjectData } from '@/interfaces/ObjectType';
+import { Intersection, ObjectType, RenderObject, InternalRenderObjectData } from '@/interfaces/ObjectType';
 import { SymbolMaterial } from '@/material/SymbolMaterial';
 import { RayCaster } from '@/objects/RayCaster';
 import { BufferGeometry } from '@/geometry/BufferGeometry';
-import { EDrawMode } from '@/config/define';
+import { DrawMode } from '@/config/define';
 
 class Symbol extends Object3D implements RenderObject {
   __internalObjectData: InternalRenderObjectData = {};
 
   geometry: BufferGeometry;
   material: SymbolMaterial;
-  readonly type: EObjectType.renderObject = EObjectType.renderObject;
-  readonly drawMode: EDrawMode = EDrawMode.triangles;
+  readonly type: ObjectType.renderObject = ObjectType.renderObject;
+  readonly drawMode: DrawMode = DrawMode.triangles;
 
   constructor(geometry?: SymbolGeometry, material: SymbolMaterial = new SymbolMaterial()) {
     super();

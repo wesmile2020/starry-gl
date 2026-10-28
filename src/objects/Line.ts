@@ -2,10 +2,10 @@ import { Ray, Vector3 } from 'starry-math';
 import { Object3D } from '@/objects/Object3D';
 import { BufferGeometry } from '@/geometry/BufferGeometry';
 import { AbstractMaterial } from '@/material/AbstractMaterial';
-import { RenderObject, Intersection, EObjectType, InternalRenderObjectData } from '@/interfaces/ObjectType';
+import { RenderObject, Intersection, ObjectType, InternalRenderObjectData } from '@/interfaces/ObjectType';
 import { MeshMaterial } from '@/material/MeshMaterial';
 import { RayCaster } from '@/objects/RayCaster';
-import { EDrawMode } from '@/config/define';
+import { DrawMode } from '@/config/define';
 
 class Line extends Object3D implements RenderObject {
   __internalObjectData: InternalRenderObjectData = {};
@@ -13,8 +13,8 @@ class Line extends Object3D implements RenderObject {
   geometry: BufferGeometry;
   material: AbstractMaterial;
 
-  readonly type: EObjectType.renderObject = EObjectType.renderObject;
-  readonly drawMode: EDrawMode = EDrawMode.lines;
+  readonly type: ObjectType.renderObject = ObjectType.renderObject;
+  readonly drawMode: DrawMode = DrawMode.lines;
 
   constructor(geometry: BufferGeometry = new BufferGeometry(), material: AbstractMaterial = new MeshMaterial()) {
     super();

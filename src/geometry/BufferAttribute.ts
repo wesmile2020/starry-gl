@@ -1,4 +1,4 @@
-import { EBufferDataType } from "@/config/define";
+import { BufferDataType } from "@/config/define";
 import { GLBuffer } from "@/webgl/GLBuffer";
 import { WebGPUBuffer } from "@/webgpu/WebGPUBuffer";
 
@@ -14,20 +14,20 @@ export abstract class BufferAttribute<T extends AttributeDataType = AttributeDat
   private _itemSize: ItemSize;
   private _array: T;
   private _count: number;
-  private _type: EBufferDataType;
+  private _type: BufferDataType;
 
   needsUpdate: boolean = true;
 
   __internalAttributeData: InternalAttributeData = {};
 
-  constructor(array: T, itemSize: ItemSize, type: EBufferDataType) {
+  constructor(array: T, itemSize: ItemSize, type: BufferDataType) {
     this._array = array;
     this._itemSize = itemSize;
     this._count = array.length / itemSize;
     this._type = type;
   }
 
-  updateSource(array: T, itemSize: ItemSize, type: EBufferDataType) {
+  updateSource(array: T, itemSize: ItemSize, type: BufferDataType) {
     this._array = array;
     this._itemSize = itemSize;
     this._count = array.length  / itemSize;
@@ -102,24 +102,24 @@ export abstract class BufferAttribute<T extends AttributeDataType = AttributeDat
 
 export class Float32BufferAttribute extends BufferAttribute<Float32Array> {
   constructor(array: ArrayLike<number>, itemSize: ItemSize) {
-    super(new Float32Array(array), itemSize, EBufferDataType.float32);
+    super(new Float32Array(array), itemSize, BufferDataType.float32);
   }
 }
 
 export class Uint32BufferAttribute extends BufferAttribute<Uint32Array> {
   constructor(array: ArrayLike<number>, itemSize: ItemSize) {
-    super(new Uint32Array(array), itemSize, EBufferDataType.uint32);
+    super(new Uint32Array(array), itemSize, BufferDataType.uint32);
   }
 }
 
 export class Uint16BufferAttribute extends BufferAttribute<Uint16Array> {
   constructor(array: ArrayLike<number>, itemSize: ItemSize) {
-    super(new Uint16Array(array), itemSize, EBufferDataType.uint16);
+    super(new Uint16Array(array), itemSize, BufferDataType.uint16);
   }
 }
 
 export class Uint8BufferAttribute extends BufferAttribute<Uint8Array> {
   constructor(array: ArrayLike<number>, itemSize: ItemSize) {
-    super(new Uint8Array(array), itemSize, EBufferDataType.uint8);
+    super(new Uint8Array(array), itemSize, BufferDataType.uint8);
   }
 }

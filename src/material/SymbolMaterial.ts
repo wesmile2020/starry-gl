@@ -2,26 +2,26 @@ import { Euler, EulerOrder, Vector3 } from 'starry-math';
 import { AbstractMaterial, MaterialParameters } from './AbstractMaterial';
 import { Texture } from '@/texture/Texture';
 import { AbstractCamera } from '@/camera/AbstractCamera';
-import { EShaderSourceType } from '@/config/ShaderSourceType';
-import { EAlignment } from '@/config/define';
+import { ShaderSourceType } from '@/config/ShaderSourceType';
+import { Alignment } from '@/config/define';
 
 export interface SymbolMaterialParameters extends MaterialParameters {
   map: Texture
   size: number;
-  alignment: EAlignment;
+  alignment: Alignment;
 }
 
 class SymbolMaterial extends AbstractMaterial {
   size: number = 1;
-  alignment: EAlignment = EAlignment.viewport;
+  alignment: Alignment = Alignment.viewport;
 
   private _rotation: Euler = new Euler(0, 0, 0, EulerOrder.ZYX);
 
   constructor(parameters: Partial<SymbolMaterialParameters> = {}) {
-    super(EShaderSourceType.symbol);
+    super(ShaderSourceType.symbol);
     super.setValues(parameters);
     this.size = parameters.size ?? 1;
-    this.alignment = parameters.alignment ?? EAlignment.viewport;
+    this.alignment = parameters.alignment ?? Alignment.viewport;
 
     this.setDefine('EULER_ORDER', this._rotation.order);
     this._uniforms.set('u_rotation', new Vector3(this._rotation.x, this._rotation.y, this._rotation.z));
@@ -30,7 +30,7 @@ class SymbolMaterial extends AbstractMaterial {
   override setValues(parameters: Partial<SymbolMaterialParameters>): this {
     super.setValues(parameters);
     this.size = parameters.size ?? 1;
-    this.alignment = parameters.alignment ?? EAlignment.viewport;
+    this.alignment = parameters.alignment ?? Alignment.viewport;
 
     return this;
   }
@@ -52,7 +52,7 @@ class SymbolMaterial extends AbstractMaterial {
     this._uniforms.set('u_resolution', camera.resolution);
     this._uniforms.set('u_size', this.size);
     const u_rotation = this._uniforms.get('u_rotation') as Vector3;
-    if (this.alignment === EAlignment.camera) {
+    if (this.alignment === Alignment.camera) {
       this._rotation.copy(camera.rotation);
       u_rotation.set(camera.rotation.x, camera.rotation.y, -camera.rotation.z);
     } else {

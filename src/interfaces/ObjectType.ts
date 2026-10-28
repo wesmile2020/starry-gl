@@ -4,11 +4,11 @@ import { AbstractMaterial } from '@/material/AbstractMaterial';
 import { Object3D } from '@/objects/Object3D';
 import { GLContext } from '@/webgl/GLContext';
 import { RayCaster } from '@/objects/RayCaster';
-import { EDrawMode } from '@/config/define';
+import { DrawMode } from '@/config/define';
 import { GPUContext } from '@/webgpu/GPUContext';
 import { WebGPUBindGroup } from '@/webgpu/WebGPUBindGroup';
 
-export enum EObjectType {
+export enum ObjectType {
   groupObject,
   renderObject,
 }
@@ -30,8 +30,8 @@ export interface RenderObject extends Object3D {
   geometry: BufferGeometry;
   material: AbstractMaterial;
 
-  readonly drawMode: EDrawMode;
-  readonly type: EObjectType.renderObject;
+  readonly drawMode: DrawMode;
+  readonly type: ObjectType.renderObject;
 
   cast(rayCaster: RayCaster): Intersection[];
   renderOnGL?(context: GLContext): void;

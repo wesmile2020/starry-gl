@@ -1,6 +1,6 @@
 import { AbstractMaterial, MaterialParameters } from './AbstractMaterial';
 import { AbstractCamera } from '@/camera/AbstractCamera';
-import { EShaderSourceType } from '@/config/ShaderSourceType';
+import { ShaderSourceType } from '@/config/ShaderSourceType';
 
 type PointMode = 'square' | 'round';
 
@@ -13,7 +13,7 @@ class PointMaterial extends AbstractMaterial {
   pointSize: number = 8;
 
   constructor(parameters: Partial<PointMaterialParameters> = {}) {
-    super(EShaderSourceType.point);
+    super(ShaderSourceType.point);
     super.setValues(parameters);
 
     this.pointSize = parameters.pointSize ?? this.pointSize;

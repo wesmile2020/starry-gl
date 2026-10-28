@@ -1,4 +1,4 @@
-import { ETextureFormat } from '@/config/define';
+import { TextureFormat } from '@/config/define';
 import { Texture } from './Texture';
 
 class ImageTexture extends Texture<'image'> {
@@ -11,7 +11,7 @@ class ImageTexture extends Texture<'image'> {
     this._width = width;
     this._height = height;
 
-    this.format = ETextureFormat.rgba8;
+    this.format = TextureFormat.rgba8;
   }
 
   updateSource(image: TexImageSource, width: number, height: number) {

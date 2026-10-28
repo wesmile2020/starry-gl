@@ -6,7 +6,7 @@ import { GPUPipeline } from "./GPUPipeline";
 import { BufferAttribute, Float32BufferAttribute } from "@/geometry/BufferAttribute";
 import { BufferGeometry } from "@/geometry/BufferGeometry";
 import { AbstractMaterial, UniformValue } from "@/material/AbstractMaterial";
-import { EBufferDataType, GPU_SAMPLE_COUNT } from "@/config/define";
+import { BufferDataType, GPU_SAMPLE_COUNT } from "@/config/define";
 import { WebGPUBuffer } from "./WebGPUBuffer";
 import { WebGPUBindGroup } from "./WebGPUBindGroup";
 
@@ -169,7 +169,7 @@ class GPUContext {
         index.array.length * Uint32Array.BYTES_PER_ELEMENT,
         GPUBufferUsage.INDEX | GPUBufferUsage.COPY_DST,
         index.array,
-        EBufferDataType.uint32,
+        BufferDataType.uint32,
       );
       index.needsUpdate = false;
     }
@@ -255,7 +255,7 @@ class GPUContext {
         attribute.array.length * Float32Array.BYTES_PER_ELEMENT,
         GPUBufferUsage.VERTEX | GPUBufferUsage.COPY_DST,
         attribute.array,
-        EBufferDataType.float32,
+        BufferDataType.float32,
       );
       attribute.needsUpdate = false;
     }

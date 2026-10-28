@@ -1,4 +1,4 @@
-import { EDrawMode, GL_BufferDataMapping } from '@/config/define';
+import { DrawMode, GL_BufferDataMapping } from '@/config/define';
 import { Mesh } from './Mesh';
 import { PolygonGeometry } from '@/geometry/PolygonGeometry';
 import { PolygonMaterial } from '@/material/PolygonMaterial';
@@ -87,7 +87,7 @@ class Polygon extends Mesh {
       }
 
       context.activePipeline.setDepthTest(false, context.depthFormat);
-      context.activePipeline.setDrawMode(EDrawMode.lines);
+      context.activePipeline.setDrawMode(DrawMode.lines);
 
       const renderPipeline = context.activePipeline.buildPipeline();
       context.passEncoder.setPipeline(renderPipeline);

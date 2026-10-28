@@ -1,7 +1,7 @@
 import { ShaderSource } from '@/webgl/shaders/ShaderSource';
 import { GLProgram } from './GLProgram';
 import { AbstractMaterial } from '@/material/AbstractMaterial';
-import { EShaderSourceType } from '@/config/ShaderSourceType';
+import { ShaderSourceType } from '@/config/ShaderSourceType';
 import { GLTexture } from '@/webgl/GLTexture';
 import { ShaderMaterial } from '@/material/ShaderMaterial';
 import { DataTexture } from '@/texture/DataTexture';
@@ -33,7 +33,7 @@ class GLMaterialCompiler {
       let fragment = '';
       const shaderType = material.getShaderType();
 
-      if (shaderType !== EShaderSourceType.custom) {
+      if (shaderType !== ShaderSourceType.custom) {
         vertex = defineCode + ShaderSource[shaderType].vertex;
         fragment = defineCode + ShaderSource[shaderType].fragment;
       } else {

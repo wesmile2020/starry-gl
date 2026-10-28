@@ -1,10 +1,10 @@
 import { Vector2, Vector3, Ray } from 'starry-math';
 import { Object3D } from '@/objects/Object3D';
-import { Intersection, EObjectType, RenderObject, InternalRenderObjectData } from '@/interfaces/ObjectType';
+import { Intersection, ObjectType, RenderObject, InternalRenderObjectData } from '@/interfaces/ObjectType';
 import { RayCaster } from '@/objects/RayCaster';
 import { PolylineMaterial } from '@/material/PolylineMaterial';
 import { PolylineGeometry } from '@/geometry/PolylineGeometry';
-import { EDrawMode } from '@/config/define';
+import { DrawMode } from '@/config/define';
 
 class Polyline extends Object3D implements RenderObject {
   __internalObjectData: InternalRenderObjectData = {};
@@ -12,8 +12,8 @@ class Polyline extends Object3D implements RenderObject {
   geometry: PolylineGeometry;
   material: PolylineMaterial;
 
-  readonly type: EObjectType.renderObject = EObjectType.renderObject;
-  readonly drawMode: EDrawMode = EDrawMode.triangles;
+  readonly type: ObjectType.renderObject = ObjectType.renderObject;
+  readonly drawMode: DrawMode = DrawMode.triangles;
 
   constructor(geometry: PolylineGeometry = new PolylineGeometry(), material: PolylineMaterial = new PolylineMaterial()) {
     super();

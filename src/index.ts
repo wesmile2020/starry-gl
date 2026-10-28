@@ -62,15 +62,15 @@ export * as ControlUtils from '@/utils/control.utils';
 export * as BrowserUtils from '@/utils/browser';
 
 export {
-  EAnchor,
-  EAlignment,
-  EDrawMode,
-  EBlendParameter,
-  ETextureFilter,
-  ETextureWrap,
-  ETextureFormat,
-  EDrawSide,
-  EBufferDataType,
+  Anchor,
+  Alignment,
+  DrawMode,
+  BlendParameter,
+  TextureFilter,
+  TextureWrap,
+  TextureFormat,
+  DrawSide,
+  BufferDataType,
 } from '@/config/define';
 
 export { WebGPURenderer } from '@/webgpu/WebGPURenderer';

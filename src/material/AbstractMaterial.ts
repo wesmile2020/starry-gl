@@ -1,7 +1,7 @@
 import { Vector2, Vector3, Vector4, Matrix4, Color, MathUtils } from 'starry-math';
 import { Texture } from '@/texture/Texture';
 import { AbstractCamera } from '@/camera/AbstractCamera';
-import { EBlendParameter, EDrawSide } from '@/config/define';
+import { BlendParameter, DrawSide } from '@/config/define';
 
 export type UniformValue = boolean | number | Vector2 | Vector3 | Vector4 | Matrix4 | Color;
 
@@ -10,7 +10,7 @@ export interface MaterialParameters {
   opacity: number;
   transparent: boolean;
   depthTest: boolean;
-  side: EDrawSide;
+  side: DrawSide;
 }
 
 abstract class AbstractMaterial {
@@ -18,11 +18,11 @@ abstract class AbstractMaterial {
   depthTest: boolean = true;
   color: Color = new Color();
   opacity: number = 1;
-  srcRGB: EBlendParameter = EBlendParameter.srcAlpha;
-  dstRGB: EBlendParameter = EBlendParameter.oneMinusSrcAlpha;
-  srcAlpha: EBlendParameter = EBlendParameter.one;
-  dstAlpha: EBlendParameter = EBlendParameter.oneMinusSrcAlpha;
-  side: EDrawSide = EDrawSide.front;
+  srcRGB: BlendParameter = BlendParameter.srcAlpha;
+  dstRGB: BlendParameter = BlendParameter.oneMinusSrcAlpha;
+  srcAlpha: BlendParameter = BlendParameter.one;
+  dstAlpha: BlendParameter = BlendParameter.oneMinusSrcAlpha;
+  side: DrawSide = DrawSide.front;
 
   protected _uniforms: Map<string, UniformValue> = new Map();
   protected _defines: Map<string, number | boolean> = new Map();
